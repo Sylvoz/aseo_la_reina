@@ -17,8 +17,19 @@ export async function aseo_la_reina(rol,dv){
 
   const browser = await puppeteer.launch({
     headless: "new",
-    defaultViewport: { width: 1280, height: 720 },
-  });
+    args: [
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+    ],
+    executablePath:
+      process.env.NODE_ENV === "production"
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : puppeteer.executablePath(),
+  })
 
   const page= await browser.newPage()
 
