@@ -31,13 +31,10 @@ export async function aseo_la_reina(rol,dv){
   } catch {
     // Predio wrong 
     return {
-      data: [
+      data: 
         {
-          id: rol + "-" + dv,
-          measurement_date: fechaFormateada,
           invoice_amount: "Sin deuda/No registrado",
-        },
-      ],
+        }
     };
   }
 
@@ -51,23 +48,17 @@ export async function aseo_la_reina(rol,dv){
   
   if (total>0){
     return {
-      data: [
+      data: 
         {
-          id: rol + "-" + dv,
-          measurement_date: fechaFormateada,
           invoice_amount: total,
-        },
-      ],
+        }
     };
   } else {
     return {
-      data: [
+      data: 
         {
-          id: rol + "-" + dv,
-          measurement_date: fechaFormateada,
           invoice_amount: "Sin deuda/No registrado",
-        },
-      ],
+        }
     };
   }
 
